@@ -207,12 +207,13 @@ function takeImage() {
         //'-h', 1944,  // height
         //'-t', 100,  // how long should taking the picture take?
         '-q', 100,     // quality
-        '-awb', 'fluorescent', 
-        '-ISO', 100,
-        '-ss', 50000,
-        '-ev', 0,
-        '-ex', 'fireworks',
-        '-mm', 'spot',
+        '-rot', 180,    // rotate image
+        '-awb', 'fluorescent',  // white balance
+        '-ISO', 100,    // ISO
+        '-ss', 50000,   // Shutter Speed /1 mil sec.
+        '-ev', 0,   // EV
+        '-ex', 'fireworks', //  Exposure mode
+        '-mm', 'spot',  // Metering mode
         '-o', getAbsoluteImagePath()   // path + name
     ];
     var imageProcess = spawn('raspistill', args);
