@@ -3,8 +3,8 @@ var version = '1.28';
 
 var args = process.argv.slice(2);
 
-var httpServer = 'http://192.168.10.100:8080';
-var socketServer = 'http://192.168.10.100:3000/';
+var httpServer = 'http://192.168.5.179:8080';
+var socketServer = 'http://192.168.5.179:3000/';
 if (typeof args[0] != 'undefined') {		
     socketServer = 'http://' + args[0];		
 }
@@ -207,7 +207,12 @@ function takeImage() {
         //'-h', 1944,  // height
         //'-t', 100,  // how long should taking the picture take?
         '-q', 90,     // quality
-        '-awb', 'fluorescent', 
+        '-awb', 'shade', 
+        '-ISO', '200',
+        '-ss', '20000',
+        '-ev', '0',
+        '-ex', 'fireworks'
+        '-mm', 'spot',
         '-o', getAbsoluteImagePath()   // path + name
     ];
     var imageProcess = spawn('raspistill', args);
