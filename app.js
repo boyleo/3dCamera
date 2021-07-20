@@ -211,7 +211,7 @@ function takeImage() {
         '-ISO', '200',
         '-ss', '20000',
         '-ev', '0',
-        '-ex', 'fireworks'
+        '-ex', 'fireworks',
         '-mm', 'spot',
         '-o', getAbsoluteImagePath()   // path + name
     ];
