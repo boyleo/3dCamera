@@ -206,11 +206,11 @@ function takeImage() {
         //'-w', 2592,   // width
         //'-h', 1944,  // height
         //'-t', 100,  // how long should taking the picture take?
-        '-q', 90,     // quality
+        '-q', 100,     // quality
         '-awb', 'cloud', 
         '-ISO', '200',
-        '-ss', '20000',
-        '-ev', '0',
+        '-ss', '33333',
+        '-ev', '1',
         '-ex', 'fireworks',
         '-mm', 'spot',
         '-o', getAbsoluteImagePath()   // path + name
