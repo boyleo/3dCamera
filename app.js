@@ -207,7 +207,7 @@ function takeImage() {
         //'-h', 1944,  // height
         //'-t', 100,  // how long should taking the picture take?
         '-q', 90,     // quality
-        '-awb', 'shade', 
+        '-awb', 'cloud', 
         '-ISO', '200',
         '-ss', '20000',
         '-ev', '0',
