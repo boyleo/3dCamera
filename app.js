@@ -44,6 +44,8 @@ var cameraName = null;
 var ipAddress  = null;
 var hostName   = null;
 
+// camera settings
+var cameraISO  = 100;
 
 function boot() {
     console.log("Starting");
