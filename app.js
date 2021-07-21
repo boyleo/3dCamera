@@ -1,5 +1,5 @@
 
-var version = '1.29';
+var version = '1.30';
 
 var args = process.argv.slice(2);
 
@@ -46,6 +46,9 @@ var hostName   = null;
 
 // camera settings
 var cameraISO  = 100;
+var cameraShutter = 50000;
+var cameraRotation = 180;
+
 
 function boot() {
     console.log("Starting");
@@ -87,6 +90,8 @@ socket.on('take-photo', function(data){
     lastReceiveTime = data.time
     takeId          = data.takeId;
     cameraISO       = data.newISO;
+    cameraShutter   = data.newSS;
+    cameraRotation  = data.newRot;
     
     takeImage();
 });
@@ -224,10 +229,10 @@ function takeImage() {
         //'-h', 1944,  // height
         //'-t', 100,  // how long should taking the picture take?
         '-q', 100,     // quality
-        '-rot', 180,    // rotate image
+        '-rot', cameraRotation,    // rotate image
         '-awb', 'fluorescent',  // white balance
         '-ISO', cameraISO,    // ISO
-        '-ss', 50000,   // Shutter Speed /1 mil sec.
+        '-ss', cameraShutter,   // Shutter Speed /1 mil sec.
         '-ev', 0,   // EV
         '-ex', 'fireworks', //  Exposure mode
         '-mm', 'spot',  // Metering mode
