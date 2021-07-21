@@ -86,9 +86,9 @@ socket.on('take-photo', function(data){
     photoStartTime  = Date.now();
     lastReceiveTime = data.time
     takeId          = data.takeId;
-    cameraISO       = data.cameraISO;
+    cameraISO       = data.newISO;
     
-    takeImage(cameraISO);
+    takeImage();
 });
 
 socket.on('update-software', function(data){
@@ -218,7 +218,7 @@ function sendImage(code) {
     });
 }
 
-function takeImage(cameraISO) {
+function takeImage() {
     var args = [
         //'-w', 2592,   // width
         //'-h', 1944,  // height
