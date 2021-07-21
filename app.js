@@ -44,8 +44,6 @@ var cameraName = null;
 var ipAddress  = null;
 var hostName   = null;
 
-// camera settings
-var cameraISO = 100;
 
 function boot() {
     console.log("Starting");
@@ -86,8 +84,9 @@ socket.on('take-photo', function(data){
     photoStartTime  = Date.now();
     lastReceiveTime = data.time
     takeId          = data.takeId;
+    cameraISO       = data.cameraISO;
     
-    takeImage();
+    takeImage(cameraISO);
 });
 
 socket.on('update-software', function(data){
@@ -217,7 +216,7 @@ function sendImage(code) {
     });
 }
 
-function takeImage() {
+function takeImage(cameraISO) {
     var args = [
         //'-w', 2592,   // width
         //'-h', 1944,  // height
