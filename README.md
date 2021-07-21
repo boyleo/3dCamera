@@ -1,3 +1,6 @@
+**IMPORTANT - Server IP is hard-coded in app.js**
+change it accordingly
+
 # 3D Camera Client Software
 
 This software is designed to run on the raspbery pi and use the raspbery pi camera, it should work on all versions of the hardware but it will be faster and more reliable with the newer devices.
