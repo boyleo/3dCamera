@@ -96,6 +96,14 @@ socket.on('update-software', function(data){
     updateSoftware();
 });
 
+socket.on('shutdown-node', function(data){
+    console.log("shutting down");
+    
+    // updateInProgress = true;
+
+    shutDownNode();
+});
+
 socket.on('update-name', function(data){
     
     // Name updates go to all devices so only respond if its comes with the devices ip address
@@ -227,6 +235,18 @@ function takeImage() {
 // Supervisor will then restart it
 function updateSoftware() {
     childProcess = exec('cd ' + __dirname + '; git pull', function (error, stdout, stderr) {
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+        if (error !== null) {
+            console.log('exec error: ' + error);
+        }
+        process.exit();
+    });
+}
+
+// Shut down the node
+function shutDownNode() {
+    childProcess = exec('shutdown -h now', function (error, stdout, stderr) {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
         if (error !== null) {
