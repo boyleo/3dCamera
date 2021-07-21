@@ -44,6 +44,8 @@ var cameraName = null;
 var ipAddress  = null;
 var hostName   = null;
 
+// camera settings
+var cameraISO = 100;
 
 function boot() {
     console.log("Starting");
@@ -94,6 +96,12 @@ socket.on('update-software', function(data){
     updateInProgress = true;
 
     updateSoftware();
+});
+
+socket.on('update-iso', function(data){
+    console.log("Updating ISO");
+    
+    cameraISO = data.newISO;
 });
 
 socket.on('shutdown-node', function(data){
@@ -217,7 +225,7 @@ function takeImage() {
         '-q', 100,     // quality
         '-rot', 180,    // rotate image
         '-awb', 'fluorescent',  // white balance
-        '-ISO', 100,    // ISO
+        '-ISO', cameraISO,    // ISO
         '-ss', 50000,   // Shutter Speed /1 mil sec.
         '-ev', 0,   // EV
         '-ex', 'fireworks', //  Exposure mode
