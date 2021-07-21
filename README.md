@@ -10,19 +10,19 @@ The first thing you need to do once you have logged into the pi is to enable the
 
 The software needs nodejs to run, the raspbery pi will come with node installed but its mostlikly an old out of date version, the following commands can be used to replace it with something more modern. There are many ways to upgrade node, this is just one.
 
-#### Upgrading to node v7
+#### Upgrading to node v14.17.3
 ```bash
 cd ~
-wget https://nodejs.org/dist/v7.9.0/node-v7.9.0-linux-armv6l.tar.gz
-tar -xvf node-v7.9.0-linux-armv6l.tar.gz
-cd node-v7.9.0-linux-armv6l/
+wget https://unofficial-builds.nodejs.org/download/release/v14.17.3/node-v14.17.3-linux-armv6l.tar.gz
+tar -xvf node-v14.17.3-linux-armv6l.tar.gz
+cd node-v14.17.3-linux-armv6l/
 sudo cp -R * /usr/local/
 sudo reboot
 
 # Tidy up
 cd ~
-rm node-v7.9.0-linux-armv6l.tar.gz.gz
-rm -r node-v7.9.0-linux-armv6l.tar.gz
+rm node-v14.17.3-linux-armv6l.tar.gz
+rm -r node-v14.17.3-linux-armv6l
 
 # Update NPM
 sudo npm install -g npm
@@ -32,7 +32,7 @@ Once node has been installed you can download the files for the client software.
 
 ```bash
 cd ~
-git clone https://github.com/ArthurGuy/3dCamera.git
+git clone https://github.com/boyleo/3dCamera.git
 ```
 
 The software can then be installed using the following commands
@@ -40,6 +40,11 @@ The software can then be installed using the following commands
 cd 3dCamera
 npm install
 ```
+**IMPORTANT note for node v.14**
+
+There are warning about some vulnerable modules,
+**DO NOT** fix the issue or the client will not work!
+
 
 Once this is complete you can test the software by running it using the following command
 ```bash
