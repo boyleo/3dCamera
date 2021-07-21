@@ -1,5 +1,5 @@
 
-var version = '1.28';
+var version = '1.29';
 
 var args = process.argv.slice(2);
 
@@ -97,7 +97,7 @@ socket.on('update-software', function(data){
 });
 
 socket.on('shutdown-node', function(data){
-    console.log("shutting down");
+    console.log("Shutting down");
     
     // updateInProgress = true;
 
