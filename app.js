@@ -1,5 +1,5 @@
 
-var version = '1.30';
+var version = '1.31b';
 
 var args = process.argv.slice(2);
 
@@ -230,12 +230,15 @@ function takeImage() {
         //'-t', 100,  // how long should taking the picture take?
         '-q', 100,     // quality
         '-rot', cameraRotation,    // rotate image
-        '-awb', 'fluorescent',  // white balance
+        '-awb', 'off',  // white balance
+		'-awbg', '1.5,1.2',
+		'-ag', '1.0',
+		'-dg', '1.0',
         '-ISO', cameraISO,    // ISO
         '-ss', cameraShutter,   // Shutter Speed /1 mil sec.
         '-ev', 0,   // EV
-        '-ex', 'fireworks', //  Exposure mode
-        '-mm', 'spot',  // Metering mode
+        '-ex', 'sports', //  Exposure mode
+        '-mm', 'matrix',  // Metering mode
         '-o', getAbsoluteImagePath()   // path + name
     ];
     var imageProcess = spawn('raspistill', args);
