@@ -234,6 +234,7 @@ function takeImage() {
 		'-awbg', '1.5,1.2',
 		'-ag', '1.0',
 		'-dg', '1.0',
+		'-drc', 'high',
         '-ISO', cameraISO,    // ISO
         '-ss', cameraShutter,   // Shutter Speed /1 mil sec.
         '-ev', 0,   // EV
