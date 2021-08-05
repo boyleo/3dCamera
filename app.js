@@ -248,7 +248,7 @@ function takeImage() {
 // To update the software we run git pull and npm install and then forcibily kill this process
 // Supervisor will then restart it
 function updateSoftware() {
-    childProcess = exec('cd ' + __dirname + '; git pull', function (error, stdout, stderr) {
+    childProcess = exec('cd ' + __dirname + '; git pull origin master', function (error, stdout, stderr) {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
         if (error !== null) {
