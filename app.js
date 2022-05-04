@@ -228,6 +228,7 @@ function takeImage() {
         //'-w', 2592,   // width
         //'-h', 1944,  // height
         //'-t', 100,  // how long should taking the picture take?
+	'-n',
         '-q', 100,     // quality
         '-rot', cameraRotation,    // rotate image
         '-awb', 'shade',  // white balance
