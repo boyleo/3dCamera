@@ -1,5 +1,5 @@
 
-var version = '1.31d';
+var version = '1.32';
 
 var args = process.argv.slice(2);
 
@@ -198,7 +198,7 @@ function sendImage(code) {
         });
     });
     
-    var fileName = guid() + '.jpg';
+    var fileName = hostName + '.jpg';
     
     // Post the image data via an http request
     var form = new FormData();
@@ -230,16 +230,15 @@ function takeImage() {
         //'-t', 100,  // how long should taking the picture take?
         '-q', 100,     // quality
         '-rot', cameraRotation,    // rotate image
-        '-awb', 'off',  // white balance
-		'-awbg', '1.5,1.2',
-		'-ag', '1.0',
-		'-dg', '1.0',
-		'-drc', 'high',
+        '-awb', 'shade',  // white balance
+	'-ag', '1.0',
+	'-dg', '1.0',
+	'-drc', 'high',
         '-ISO', cameraISO,    // ISO
         '-ss', cameraShutter,   // Shutter Speed /1 mil sec.
         '-ev', 0,   // EV
-        '-ex', 'sports', //  Exposure mode
-        '-mm', 'matrix',  // Metering mode
+        '-ex', 'auto', //  Exposure mode
+        '-mm', 'spot',  // Metering mode
         '-o', getAbsoluteImagePath()   // path + name
     ];
     var imageProcess = spawn('raspistill', args);
